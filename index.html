@@ -17,6 +17,18 @@ setTimeout(function(){window.location.href=a.href;},300);
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2354318188295655&ev=PageView&noscript=1"/></noscript>
 <!-- Fim Meta Pixel -->
+  <!-- Passa fbclid e UTMs para o checkout -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+var q=new URLSearchParams(window.location.search);
+if(!q.toString())return;
+document.querySelectorAll('a[href*="pagar.co.mz"]').forEach(function(a){
+var u=new URL(a.href);
+q.forEach(function(v,k){if(!u.searchParams.has(k))u.searchParams.set(k,v);});
+a.href=u.toString();
+});
+});
+</script>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
